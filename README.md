@@ -5,11 +5,11 @@
 ## 实现计划
    计划基于书生·浦语大模型（InternLM）及相关框架，通过微调和RAG等技术，实现通信领域general和expert知识的问答交互。
 ## 微调
-基于InternLM2工具链中的xtuner微调框架，支持多数主流大模型和多类微调方法
+基于InternLM2工具链中的xtuner微调框架，支持多数主流大模型和多类微调方法\\
 源码安装：
-`git clone -b v0.1.19 https://github.com/InternLM/xtuner`
-`cd /path/to/xtuner`
-`pip install -e '.[all]'`
+`git clone -b v0.1.19 https://github.com/InternLM/xtuner`\\
+`cd /path/to/xtuner`\\
+`pip install -e '.[all]'`\\
 或者pip安装：
 `pip install xtuner==0.1.19`
 xtuner微调参考教程：
