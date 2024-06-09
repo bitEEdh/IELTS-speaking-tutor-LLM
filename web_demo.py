@@ -40,7 +40,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 @dataclass
 class GenerationConfig:
     # this config is used for chat to provide more diversity
-    max_length: int = 4096
+    max_length: int = 2048
     top_p: float = 0.75
     temperature: float = 0.1
     do_sample: bool = True
