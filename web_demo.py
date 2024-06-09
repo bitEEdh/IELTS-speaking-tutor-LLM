@@ -40,7 +40,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 @dataclass
 class GenerationConfig:
     # this config is used for chat to provide more diversity
-    max_length: int = 2048
+    max_length: int = 4096
     top_p: float = 0.75
     temperature: float = 0.1
     do_sample: bool = True
@@ -186,10 +186,10 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
-    model = (AutoModelForCausalLM.from_pretrained('./final_model',
+    model = (AutoModelForCausalLM.from_pretrained('/home/xlab-app-center/.cache/model/internlm2-chat-1.8b',
                                                   trust_remote_code=True).to(
                                                       torch.bfloat16).to(device))
-    tokenizer = AutoTokenizer.from_pretrained('./final_model',
+    tokenizer = AutoTokenizer.from_pretrained('/home/xlab-app-center/.cache/model/internlm2-chat-1.8b',
                                               trust_remote_code=True)
     return model, tokenizer
 
@@ -241,7 +241,7 @@ def main():
     print('load model end.')
 
 
-    st.title('InternLM2-Chat-1.8B')
+    st.title('Wireless Communication Chat Based on InternLM2-Chat-1.8B')
 
     generation_config = prepare_generation_config()
 
@@ -257,14 +257,15 @@ def main():
     # Accept user input
     if prompt := st.chat_input('What is up?'):
         # Display user message in chat message container
-        prompt = process_user_input(prompt)
+        p_prompt = process_user_input(prompt)
         with st.chat_message('user'):
             st.markdown(prompt)
-        real_prompt = combine_history(prompt)
+        real_prompt = combine_history(p_prompt)
         # Add user message to chat history
         st.session_state.messages.append({
             'role': 'user',
             'content': prompt,
+            # 'disp_content': prompt,
         })
 
         with st.chat_message('robot'):
