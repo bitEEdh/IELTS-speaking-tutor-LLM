@@ -186,10 +186,10 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
-    model = (AutoModelForCausalLM.from_pretrained('/home/xlab-app-center/.cache/model',
+    model = (AutoModelForCausalLM.from_pretrained('./model',
                                                   trust_remote_code=True).to(
                                                       torch.bfloat16).to(device))
-    tokenizer = AutoTokenizer.from_pretrained('/home/xlab-app-center/.cache/model',
+    tokenizer = AutoTokenizer.from_pretrained('./model',
                                               trust_remote_code=True)
     return model, tokenizer
 
