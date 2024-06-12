@@ -11,3 +11,4 @@ html2text
 tiktoken
 beautifulsoup4
 streamlit==1.24.0
+packaging~=24.0
