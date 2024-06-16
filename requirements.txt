@@ -12,3 +12,4 @@ tiktoken
 beautifulsoup4
 streamlit
 packaging
+einops
